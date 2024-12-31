@@ -2,6 +2,7 @@ using System.Text.Json;
 using Application.Categories.Command;
 using Application.Categories.Queries;
 using Application.Categories.Service;
+using Domain.Abstractions;
 using Domain.Models;
 using Domain.Services;
 using Mapster;
@@ -22,8 +23,8 @@ public class LocationController(IMediator mediator, IHttpClientFactory httpFacto
     ILogger<UserAuthentificationController> logger)
     : ControllerBase
 {
-    [HttpPost]
-    public async Task<IActionResult> GetLocation([FromBody] GeoCoordinate coordinate)
+    [HttpPost("Create")]
+    public async Task<IActionResult> CreateLocation([FromBody] GeoCoordinate coordinate)
     {
         try
         {
@@ -117,8 +118,6 @@ public class LocationController(IMediator mediator, IHttpClientFactory httpFacto
     {
         try
         {
-   
-
             var result = await mediator.Send(new GetLocationByCity{ City = city });
             var locationDto = result.Value.Adapt<List<LocationDto>>();
             
@@ -152,11 +151,14 @@ public class LocationController(IMediator mediator, IHttpClientFactory httpFacto
             return HandleError(ex);
         }
     }
-
     
-    private ActionResult HandleError(Exception ex)
+    private IActionResult HandleError(Exception ex)
     {
         logger.LogError($"An error occurred: {ex.Message}");
-        return StatusCode(500, new { message = "An error occurred while processing your request." });
+        
+        var result = Result<ApiKey>.Failure(Error.Failure("Location.Failure", 
+            $"{ ex.Message }"));
+        
+        return ResultExtensions.ToProblemDetails(result);
     }
 }

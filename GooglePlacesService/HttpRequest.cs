@@ -22,13 +22,11 @@ public class HttpRequest(IHttpClientFactory factory, IConfiguration configuratio
                 return JsonSerializer.Deserialize<Root>(responseData) ?? new Root();
             }
 
-            Console.WriteLine($"Request failed with status code: {response.StatusCode}");
+            throw new Exception($"Request failed with status code: {response.StatusCode}");
         }
         catch (Exception ex)
         {
-            Console.WriteLine($"An error occurred: {ex.Message}");
+            throw new Exception($"An error occurred: {ex.Message}");
         }
-
-        return new Root();
     }
 }
