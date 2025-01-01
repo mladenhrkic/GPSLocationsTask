@@ -11,14 +11,9 @@ public class SynchronousRequestMiddleware : IMiddleware
 
     public async Task InvokeAsync(HttpContext context, RequestDelegate next)
     {
-        if (IsLoginAction.Check(context))
-        {
-            await next(context);
-            return;
-        }
-
         var apiKey = ApiKeyFromHeaders.Get(context);
-        if (string.IsNullOrEmpty(apiKey))
+        
+        if (AvoidSemaphore(context, apiKey))
         {
             await next(context);
             return;
@@ -40,5 +35,12 @@ public class SynchronousRequestMiddleware : IMiddleware
                 removedSemaphore.Dispose();
             }
         }
+    }
+
+    private static bool AvoidSemaphore(HttpContext context, string apiKey)
+    {
+        return IsLoginAction.Check(context) || 
+               IsSignalRSubscription.Check(context) ||
+               string.IsNullOrEmpty(apiKey);
     }
 }

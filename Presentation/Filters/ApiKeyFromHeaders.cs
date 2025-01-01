@@ -1,7 +1,4 @@
-using System.Net;
-using Domain.Models;
 using Microsoft.AspNetCore.Http;
-using Presentation.Helper;
 
 namespace Presentation.Filters;
 
@@ -13,8 +10,6 @@ public static class ApiKeyFromHeaders
         {
             return apiKey;
         }
-        throw new UnauthorizedAccessException("ApiKey not found in headers.");
-        
+        return string.Empty;
     }
-        
 }
