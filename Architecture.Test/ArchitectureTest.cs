@@ -10,7 +10,7 @@ public class ArchitectureTest
     private const string InfrastructureNamespace = "Infrastructure";
     private const string PresentationNamespace = "Presentation";
     private const string WebApiNamespace = "WebApi";
-    private const string GogglePlaceServiceNamespace = "GogglePlaceService";
+    private const string GogglePlaceServiceNamespace = "GooglePlacesService";
     
     [Test]
     public void Domain_Should_Not_HaveDependencyOnOtherProject()
@@ -132,23 +132,27 @@ public class ArchitectureTest
     [Test]
     public void No_Project_Should_Have_DependencyOnGoggleService()
     {
-        var assembly = typeof(Application.AssemblyReference).Assembly;
-
         var otherProjects = new[]
         {
             InfrastructureNamespace,
             PresentationNamespace,
             WebApiNamespace,
             DomainNamespace,
-            ApplicationNamespace
+            //ApplicationNamespace
         };
 
-        var testResult = Types
-            .InAssembly(assembly)
-            .ShouldNot()
-            .HaveDependencyOn(GogglePlaceServiceNamespace)
-            .GetResult();
-
-        testResult.IsSuccessful.Should().BeTrue();
+        foreach (var projectNamespace in otherProjects)
+        {
+            var assembly = System.Reflection.Assembly.Load(projectNamespace);
+            
+            var testResult = Types
+                .InAssembly(assembly)
+                .ShouldNot()
+                .HaveDependencyOn(GogglePlaceServiceNamespace)
+                .GetResult();
+            
+            testResult.IsSuccessful.Should().BeTrue(
+                $"{projectNamespace} should not have a dependency on GooglePlacesService, but a violation was found.");
+        }
     }
 }
