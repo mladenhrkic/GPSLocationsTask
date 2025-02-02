@@ -1,5 +1,5 @@
-using Domain.Services;
-using GooglePlacesService;
+using Application.Enum;
+using Application.Factory;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Application;
@@ -13,8 +13,8 @@ public static class DependencyInjection
         services.AddMediatR(configuration =>
             configuration.RegisterServicesFromAssembly(assembly));
 
-        services.AddScoped<ILocationService, GetLocation>();
-        
+        services.PlacesFactory(Places.GooglePlaces);
+
         return services;
     }
 }

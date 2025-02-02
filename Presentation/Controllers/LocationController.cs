@@ -91,7 +91,6 @@ public class LocationController(IMediator mediator, IHttpClientFactory httpFacto
             return HandleError(ex);
         }
     }
-
     
     [HttpGet("FilterByStreet")]
     public async Task<IActionResult> GetLocationsByStreet([FromQuery] string street)

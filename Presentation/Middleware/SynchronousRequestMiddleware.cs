@@ -30,7 +30,7 @@ public class SynchronousRequestMiddleware : IMiddleware
         finally
         {
             semaphore.Release();
-            if (semaphore.CurrentCount == 1 && _userQueues.TryRemove(apiKey, out var removedSemaphore))
+            if (_userQueues.TryRemove(apiKey, out var removedSemaphore))
             {
                 removedSemaphore.Dispose();
             }
