@@ -1,4 +1,3 @@
-using GooglePlacesService;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc.Controllers;
 
@@ -10,7 +9,7 @@ public static class ControllerDescriptor
     {
         var endpoint = context.GetEndpoint();
         var descriptor = endpoint?.Metadata.GetMetadata<ControllerActionDescriptor>();
-        
+
         return descriptor ?? new ControllerActionDescriptor();
     }
 }

@@ -1,15 +1,14 @@
 using Application.Categories.Service;
-using Domain.Abstractions;
 using Domain.Models;
 using Domain.Services;
 using MediatR;
 
 namespace Application.Categories.ServiceHandler;
 
-public class LocationServiceMediatorHandler(ILocationService locationService) 
+public class LocationServiceMediatorHandler(ILocationService locationService)
     : IRequestHandler<LocationServiceMediator, ICollection<Location>>
 {
-    public async Task<ICollection<Location>> Handle(LocationServiceMediator request, 
+    public async Task<ICollection<Location>> Handle(LocationServiceMediator request,
         CancellationToken cancellationToken)
     {
         return await locationService.GetLocationsAsync(

@@ -1,5 +1,4 @@
 using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc.Controllers;
 
 namespace Presentation.Helper;
 
@@ -9,7 +8,7 @@ public static class IsLoginAction
     {
         var descriptor = ControllerDescriptor.Get(context);
         var allowedActions = new[] { "Login", "Register" };
-        return descriptor is { ControllerName: "UserAuthentification" } 
+        return descriptor is { ControllerName: "UserAuthentification" }
                && allowedActions.Contains(descriptor.ActionName);
     }
 }

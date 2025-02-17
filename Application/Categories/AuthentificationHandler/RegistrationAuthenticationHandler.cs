@@ -1,6 +1,5 @@
 using Application.Categories.Authentification;
 using Domain.Abstractions;
-using Domain.Models;
 using MediatR;
 
 namespace Application.Categories.AuthentificationHandler;
