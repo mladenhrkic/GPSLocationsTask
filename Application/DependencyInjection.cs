@@ -15,11 +15,8 @@ public static class DependencyInjection
 
         services.PlacesFactory(Places.GooglePlaces);
 
-<<<<<<< Updated upstream
         int test32 = 35;
-=======
         int test = 23;
->>>>>>> Stashed changes
 
         return services;
     }
