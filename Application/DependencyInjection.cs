@@ -15,17 +15,6 @@ public static class DependencyInjection
 
         services.PlacesFactory(Places.GooglePlaces);
 
-        int test32 = 35;
-        int test = 23;
-
-        string name = "mladen";
-
-        string username = "test123";
-
-        string check = "new test";
-
-        decimal num = 23.00m;
-
         return services;
     }
 }
