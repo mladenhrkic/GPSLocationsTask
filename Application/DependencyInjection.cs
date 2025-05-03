@@ -22,6 +22,8 @@ public static class DependencyInjection
 
         string username = "test123";
 
+        string check = "new test";
+
         decimal num = 23.00m;
 
         return services;
