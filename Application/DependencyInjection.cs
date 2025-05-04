@@ -28,4 +28,8 @@ public static class DependencyInjection
 
         return services;
     }
+
+    private static void GitHub(){
+        var num = 23;
+    }
 }
