@@ -1,3 +1,4 @@
+using System.Net.NetworkInformation;
 using Application.Enum;
 using Application.Factory;
 using Microsoft.Extensions.DependencyInjection;
@@ -27,6 +28,12 @@ public static class DependencyInjection
         decimal num = 23.00m;
 
         return services;
+    }
+
+
+    private static string VisualStudio()
+    {
+        return "";
     }
 
     private static void GitHub(){
