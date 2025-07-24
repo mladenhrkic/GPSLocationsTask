@@ -26,7 +26,7 @@ public static class DependencyInjection
         string check = "new test";
 
         decimal num1 = 66m;
-        string mum2 = "40";
+        decimal num2 = 40m;
 
         return services;
     }
