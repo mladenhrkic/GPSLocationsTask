@@ -18,6 +18,8 @@ public static class DependencyInjection
 
         int test32 = 35;
 
+        decimal tt = 44m;
+
         return services;
     }
 
