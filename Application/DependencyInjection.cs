@@ -24,7 +24,7 @@ public static class DependencyInjection
     }
 
 
-    private static string VisualStudio()
+    private static string VisualStudioqq()
     {
         return "";
     }
