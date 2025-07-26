@@ -16,15 +16,11 @@ public static class DependencyInjection
 
         services.PlacesFactory(Places.GooglePlaces);
 
-        int test32 = 35;
-
-        string tt = "test";
-
         return services;
     }
 
 
-    private static string VisualStudioqq()
+    private static string VisualStudio23()
     {
         return "";
     }
