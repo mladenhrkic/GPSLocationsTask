@@ -1,4 +1,3 @@
-using System.Net.NetworkInformation;
 using Application.Enum;
 using Application.Factory;
 using Microsoft.Extensions.DependencyInjection;
