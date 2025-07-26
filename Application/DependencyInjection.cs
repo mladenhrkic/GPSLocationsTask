@@ -19,9 +19,9 @@ public static class DependencyInjection
     }
 
 
-    private static string VisualStudio23()
+    private static int VisualStudio23()
     {
-        return "";
+        return 0;
     }
 
     private static void GitHub(){
