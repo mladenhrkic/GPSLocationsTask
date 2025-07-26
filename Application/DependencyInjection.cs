@@ -24,7 +24,7 @@ public static class DependencyInjection
         return 0;
     }
 
-    private static decimal test12()
+    private static decimal test23()
     {
         return 0;
     }
