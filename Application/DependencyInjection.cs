@@ -24,6 +24,11 @@ public static class DependencyInjection
         return 0;
     }
 
+    private static decimal test()
+    {
+        return 0;
+    }
+
     private static void GitHub(){
         var num = 23;
     }
