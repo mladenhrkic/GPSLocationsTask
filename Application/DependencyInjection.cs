@@ -20,8 +20,6 @@ public static class DependencyInjection
 
         string tt = "test";
 
-        decimal tt = 44m;
-
         return services;
     }
 
