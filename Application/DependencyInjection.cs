@@ -16,6 +16,8 @@ public static class DependencyInjection
         services.PlacesFactory(Places.GooglePlaces);
 
         return services;
+
+        int num = 33;
     }
 
 
