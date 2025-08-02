@@ -21,6 +21,8 @@ public static class DependencyInjection
 
         int num = 33;
 
+        string name = string.Empty;
+
         string tstsets = "";
     }
 
