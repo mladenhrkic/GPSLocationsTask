@@ -17,6 +17,8 @@ public static class DependencyInjection
 
         return services;
 
+        int test = 23;
+
         int num = 33;
     }
 
