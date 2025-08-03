@@ -16,23 +16,5 @@ public static class DependencyInjection
         services.PlacesFactory(Places.GooglePlaces);
 
         return services;
-
-        int test = 23;
-
-        int num = 33;
-
-        string name = string.Empty;
-
-        string tstsets = "";
-    }
-
-
-    private static int VisualStudio23()
-    {
-        return 0;
-    }
-
-    private static void GitHub(){
-        var num = 23;
     }
 }
